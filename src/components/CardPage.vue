@@ -1,7 +1,7 @@
 <template>
   <div class="col">
    <div class="card content text-center " style="width: 18rem;">
-    <img :src="poster" :alt="title" class="figure-img img-fluid">
+    <img :src="poster" :alt="title" class="figure-img img-fluid p-4">
     <div class="card-body">
       <h2 class="song card-text">{{title}}</h2>
       <h4 class="author card-text">{{author}}</h4>
