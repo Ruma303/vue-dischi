@@ -1,6 +1,12 @@
 <template>
-  <header class="container-fluid d-flex mx-0 px-2 align-items-center">
-    <img src="@/img/spotify-logo.png" alt="">
+  <header class="container-fluid d-flex mx-0 px-2 align-items-center justify-content-between">
+    <img src="@/img/spotify-logo.png" alt="" />
+    <form action="">
+      <!-- DROPDOWN MENU PER GENERI -->
+
+      <!-- INPUT RICERCA -->
+
+    </form>
   </header>
 </template>
 

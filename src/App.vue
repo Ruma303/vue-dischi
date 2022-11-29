@@ -2,7 +2,6 @@
   <div id="app">
     <HeaderPage />
     <MainPage />
-    <CardPage />
   </div>
 </template>
 
@@ -20,5 +19,5 @@ export default {
 </script>
 
 <style lang="scss">
-@import "../node_modules/bootstrap/scss/bootstrap";
+@import "~bootstrap/scss/bootstrap";
 </style>
