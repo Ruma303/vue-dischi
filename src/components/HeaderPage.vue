@@ -3,7 +3,7 @@
     <img src="@/img/spotify-logo.png" alt="" />
     <form action="">
       <!-- DROPDOWN MENU PER GENERI -->
-
+      <font-awesome-icon icon="fa-solid fa-chevron-right" />
       <!-- INPUT RICERCA -->
 
     </form>
@@ -11,8 +11,11 @@
 </template>
 
 <script>
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+
 export default {
   name: 'HeaderPage',
+  components: { FontAwesomeIcon },
 };
 </script>
 
