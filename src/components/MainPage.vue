@@ -1,8 +1,8 @@
 <template>
   <div class="main container-fluid d-flex flex-column align-items-center gap-5">
+    <li v-for="genre in genArr" :key="genre">{{genre}}</li>
     <div class="container-fluid m-0 align-items-center d-flex d-wrap px-5">
       <ul class="row row-cols-5 g-5">
-        <li v-for="genre in genArr" :key="genre">{{genre}}</li>
       </ul>
         <CardPage
         v-for="index in arrCDs"
@@ -37,7 +37,7 @@ export default {
   created() {
     axios.get(this.cdAPI)
       .then((axiosResponse) => {
-        console.log(axiosResponse);
+        // console.log(axiosResponse);
         this.arrCDs = axiosResponse.data.response;
       });
   },
@@ -51,7 +51,7 @@ export default {
           }
         });
       }
-      console.log(arrGenres);
+      // console.log(arrGenres);
       return arrGenres;
     },
     arrDisksFiltered() {
@@ -61,11 +61,12 @@ export default {
       return this.arrCDs.filter((objDisk) => objDisk.genre === this.genreFilter);
     },
   },
-  // watch: {
-  //   arrGenres(newValue) {
-  //     this.$emit('genresReady', newValue);
-  //   },
-  // },
+  watch: {
+    arrGenres(newValue) {
+      console.log(newValue); // PROBLEMA QUI, NON SI VEDE IL CONSOLE.LOG
+      this.$emit('genresReady', newValue);
+    },
+  },
 };
 </script>
 

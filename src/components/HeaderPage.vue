@@ -4,13 +4,11 @@
       <!-- Ricerca per genere -->
       <label for="select-genre" class="mx-5">
         Cerca per genere:
-        <select name="genre" id="select-genre"
-        v-model="genreFilter"
-        @change="genreChange"
-        >
+        <select name="genre" id="select-genre">
           <option value="All" selected>All</option>
-          <option :value="genre"
-          v-for="genre in genresList"
+          <option
+          v-for="genre in propGenresList"
+          :value="genre"
           :key="genre"
           >
           {{genre}}
@@ -25,7 +23,7 @@
 export default {
   name: 'HeaderPage',
   props: {
-    genresList: Array,
+    propGenresList: Array,
   },
   components: {
   },

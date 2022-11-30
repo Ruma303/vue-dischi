@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <HeaderPage :genres-list="genresList"/>
+    <HeaderPage :propGenresList="genresList"/>
     <MainPage @genresReady="getGenresList"/>
   </div>
 </template>
