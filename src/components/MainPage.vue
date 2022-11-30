@@ -2,7 +2,7 @@
   <div class="main container-fluid d-flex flex-column align-items-center gap-5">
     <div class="container-fluid m-0 align-items-center d-flex d-wrap px-5">
       <ul class="row row-cols-5 g-5">
-        <li v-for="genre in arrGenres" :key="genre">{{genre}}</li>
+        <li v-for="genre in genArr" :key="genre">{{genre}}</li>
       </ul>
         <CardPage
         v-for="index in arrCDs"
