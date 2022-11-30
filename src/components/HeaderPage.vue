@@ -1,21 +1,44 @@
 <template>
   <header class="container-fluid d-flex mx-0 px-2 align-items-center justify-content-between">
     <img src="@/img/spotify-logo.png" alt="" />
-    <form action="">
-      <!-- DROPDOWN MENU PER GENERI -->
-      <font-awesome-icon icon="fa-solid fa-chevron-right" />
-      <!-- INPUT RICERCA -->
-
-    </form>
+      <!-- Ricerca per genere -->
+      <label for="select-genre" class="mx-5">
+        Cerca per genere:
+        <select name="genre" id="select-genre"
+        v-model="genreFilter"
+        @change="genreChange"
+        >
+          <option value="All" selected>All</option>
+          <option :value="genre"
+          v-for="genre in genresList"
+          :key="genre"
+          >
+          {{genre}}
+          </option>
+        </select>
+      </label>
   </header>
 </template>
 
 <script>
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
 export default {
   name: 'HeaderPage',
-  components: { FontAwesomeIcon },
+  props: {
+    genresList: Array,
+  },
+  components: {
+  },
+  data() {
+    return {
+      genreFilter: 'all',
+    };
+  },
+  methods: {
+    genreChange() {
+      this.$emit('changedGenre', this.genreFilter);
+    },
+  },
 };
 </script>
 

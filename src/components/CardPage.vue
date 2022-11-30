@@ -19,7 +19,7 @@ export default {
     poster: String,
     title: String,
     author: String,
-    year: Number,
+    year: String,
   },
 };
 </script>

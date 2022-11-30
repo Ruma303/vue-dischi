@@ -1,9 +1,9 @@
 <template>
   <div class="main container-fluid d-flex flex-column align-items-center gap-5">
-    <SearchBar class="mt-5"/>
     <div class="container-fluid m-0 align-items-center d-flex d-wrap px-5">
-      <ul v-if="arrCDs"
-      class="row row-cols-5 g-5">
+      <ul class="row row-cols-5 g-5">
+        <li v-for="genre in arrGenres" :key="genre">{{genre}}</li>
+      </ul>
         <CardPage
         v-for="index in arrCDs"
         :key="index.title"
@@ -12,10 +12,6 @@
         :author="index.author"
         :year="index.year"
         />
-      </ul>
-      <div v-else>
-        Loading...
-        </div>
     </div>
   </div>
 </template>
@@ -23,19 +19,20 @@
 <script>
 import axios from 'axios';
 import CardPage from './CardPage.vue';
-import SearchBar from './SearchBar.vue';
 
 export default {
   name: 'MainPage',
   components: {
     CardPage,
-    SearchBar,
   },
   data() {
     return {
-      arrCDs: null,
       cdAPI: 'https://flynn.boolean.careers/exercises/api/array/music',
+      arrCDs: null,
     };
+  },
+  props: {
+    genreFilter: String,
   },
   created() {
     axios.get(this.cdAPI)
@@ -44,6 +41,31 @@ export default {
         this.arrCDs = axiosResponse.data.response;
       });
   },
+  computed: {
+    genArr() {
+      const arrGenres = [];
+      if (this.arrCDs) { // se non è vuoto
+        this.arrCDs.forEach((objDisk) => {
+          if (!arrGenres.includes(objDisk.genre)) {
+            arrGenres.push(objDisk.genre);
+          }
+        });
+      }
+      console.log(arrGenres);
+      return arrGenres;
+    },
+    arrDisksFiltered() {
+      if (this.genreFilter === 'all') {
+        return this.arrCDs;
+      }
+      return this.arrCDs.filter((objDisk) => objDisk.genre === this.genreFilter);
+    },
+  },
+  // watch: {
+  //   arrGenres(newValue) {
+  //     this.$emit('genresReady', newValue);
+  //   },
+  // },
 };
 </script>
 

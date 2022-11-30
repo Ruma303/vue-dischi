@@ -1,8 +1,7 @@
 <template>
   <div id="app">
     <HeaderPage :genres-list="genresList"/>
-    <MainPage @genresReady="getGenresList"
-    @genFilter=""/>
+    <MainPage @genresReady="getGenresList"/>
   </div>
 </template>
 
