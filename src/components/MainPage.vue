@@ -1,17 +1,17 @@
 <template>
-  <div class="main container-fluid d-flex flex-column align-items-center gap-5">
-    <li v-for="genre in genArr" :key="genre">{{genre}}</li>
-    <div class="container-fluid m-0 align-items-center d-flex d-wrap px-5">
+  <div class="main container-fluid d-flex
+  justify-content-center flex-column align-items-center gap-5">
+    <div class="container-fluid m-0 align-items-center justify-content-center d-flex d-wrap px-5">
       <ul class="row row-cols-5 g-5">
-      </ul>
         <CardPage
-        v-for="index in arrCDs"
-        :key="index.title"
-        :poster="index.poster"
-        :title="index.title"
-        :author="index.author"
-        :year="index.year"
+        v-for="objCD in arrDisksFiltered"
+        :key="objCD.title"
+        :poster="objCD.poster"
+        :title="objCD.title"
+        :author="objCD.author"
+        :year="objCD.year"
         />
+      </ul>
     </div>
   </div>
 </template>
@@ -58,12 +58,12 @@ export default {
       if (this.genreFilter === 'all') {
         return this.arrCDs;
       }
-      return this.arrCDs.filter((objDisk) => objDisk.genre === this.genreFilter);
+      return this.arrCDs.filter((objDisc) => objDisc.genre === this.genreFilter);
     },
   },
   watch: {
-    arrGenres(newValue) {
-      console.log(newValue); // PROBLEMA QUI, NON SI VEDE IL CONSOLE.LOG
+    genArr(newValue) {
+      // console.log(newValue);
       this.$emit('genresReady', newValue);
     },
   },

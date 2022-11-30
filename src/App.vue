@@ -1,7 +1,9 @@
 <template>
   <div id="app">
-    <HeaderPage :propGenresList="genresList"/>
-    <MainPage @genresReady="getGenresList"/>
+    <HeaderPage :propGenresList="genresList"
+    @changedGenre="genreChange"/>
+    <MainPage @genresReady="getGenresList"
+    :propGenresFilter="genreFilter"/>
   </div>
 </template>
 
@@ -25,9 +27,10 @@ export default {
     getGenresList(genresList) {
       this.genresList = genresList;
     },
-  },
-  genreChanged(genreFilter) {
-    this.genreFilter = genreFilter;
+    genreChange(genreFilter) {
+      console.log(genreFilter);
+      this.genreFilter = genreFilter;
+    },
   },
 };
 </script>
