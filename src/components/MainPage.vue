@@ -58,7 +58,7 @@ export default {
       if (this.genreFilter === 'all') {
         return this.arrCDs;
       }
-      return this.arrCDs.filter((objDisc) => objDisc.genre === this.genreFilter);
+      return this.arrCDs.filter((objDisk) => objDisk.genre === this.genreFilter);
     },
   },
   watch: {

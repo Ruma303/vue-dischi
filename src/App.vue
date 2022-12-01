@@ -1,9 +1,11 @@
 <template>
   <div id="app">
-    <HeaderPage :propGenresList="genresList"
+    <HeaderPage
+    :genresList="genresList"
     @changedGenre="genreChange"/>
-    <MainPage @genresReady="getGenresList"
-    :propGenresFilter="genreFilter"/>
+    <MainPage
+    :genreFilter="genreFilter"
+    @genresReady="getGenresList" />
   </div>
 </template>
 
